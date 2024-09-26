@@ -160,6 +160,18 @@ resource "aws_instance" "windows" {
   associate_public_ip_address = "true"
   vpc_security_group_ids      = [aws_security_group.windows.id]
   key_name                    = var.key_name
+  user_data = <<-EOF
+    <powershell>
+    # Be sure to set the username and password on these two lines. Of course this is not a good
+    # security practice to include a password at command line.
+    $User = "RdpUser"
+    $Password = ConvertTo-SecureString "S3curePa55w0rd" -AsPlainText -Force
+    New-LocalUser $User -Password $Password
+    Add-LocalGroupMember -Group "Remote Desktop Users" -Member $User
+    Add-LocalGroupMember -Group "Administrators" -Member $User
+    </powershell>
+    EOF
+
   
   tags = {
     Name        = "winsrv-01"
