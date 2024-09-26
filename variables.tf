@@ -21,3 +21,8 @@ variable "network_address_space" {
   description = "CIDR for this deployment"
   default     = "192.168.0.0/16"
 }
+
+variable "windows_username" {
+  description = "Username to login to the Windows Server"
+  default     = "RdpUser"
+}
