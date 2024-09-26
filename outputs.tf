@@ -15,6 +15,5 @@ output "ami-windows" {
 }
 
 output "windows-password" {
-  value = random_pet.password.result
-  sensitive = true
+  value = random_pet.password.id
 }
