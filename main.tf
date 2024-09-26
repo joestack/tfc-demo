@@ -115,3 +115,17 @@ resource "aws_instance" "bastionhost" {
     Name        = "bh-instance"
   }
 }
+
+resource "aws_instance" "windows" {
+  ami                         = data.aws_ami.windows-2019.id
+  instance_type               = var.instance_type
+  subnet_id                   = aws_subnet.dmz_subnet.id
+  private_ip                  = cidrhost(aws_subnet.dmz_subnet.cidr_block, 20)
+  associate_public_ip_address = "true"
+  vpc_security_group_ids      = [aws_security_group.bastionhost.id]
+  key_name                    = var.key_name
+  
+  tags = {
+    Name        = "winsrv-01"
+  }
+}
