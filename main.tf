@@ -154,7 +154,6 @@ resource "aws_instance" "linux" {
 
 resource "random_pet" "password" {
   length = 2
-  prefix = f00
 }
 
 resource "aws_instance" "windows" {
