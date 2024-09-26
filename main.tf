@@ -110,7 +110,7 @@ resource "aws_security_group" "windows" {
 }
 
 resource "aws_security_group_rule" "win-rdp-tcp" {
-  security_group_id = aws_security_group.windows.owner_id
+  security_group_id = aws_security_group.windows.id
   type              = "ingress"
   from_port         = 3389
   to_port           = 3389
@@ -119,7 +119,7 @@ resource "aws_security_group_rule" "win-rdp-tcp" {
 }
 
 resource "aws_security_group_rule" "win-rdp-ucp" {
-  security_group_id = aws_security_group.windows.owner_id
+  security_group_id = aws_security_group.windows.id
   type              = "ingress"
   from_port         = 3389
   to_port           = 3389
