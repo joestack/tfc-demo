@@ -13,3 +13,7 @@ output "ami-ubuntu" {
 output "ami-windows" {
   value = data.aws_ami.windows-2019.id
 }
+
+output "windows-password" {
+  value = random_password.password.result
+}

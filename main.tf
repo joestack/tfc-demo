@@ -152,6 +152,12 @@ resource "aws_instance" "linux" {
   }
 }
 
+resource "random_password" "password" {
+  length           = 8
+  special          = true
+  override_special = "!#$%&*()-_=+[]{}<>:?"
+}
+
 resource "aws_instance" "windows" {
   ami                         = data.aws_ami.windows-2019.id
   instance_type               = var.instance_type
