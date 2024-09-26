@@ -1,5 +1,9 @@
-output "instance_public_ip" {
+output "linux_public_ip" {
   value = aws_instance.bastionhost.public_ip
+}
+
+output "windows_public_ip" {
+  value = aws_instance.windows.public_ip
 }
 
 output "ami-ubuntu" {
