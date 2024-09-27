@@ -26,8 +26,3 @@ variable "windows_username" {
   description = "Username to login to the Windows Server"
   default     = "RdpUser"
 }
-
-variable "windows_password" {
-  description = "Password to login to the Windows Server"
-  default     = "S3curePa55w0rd"
-}
