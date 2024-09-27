@@ -152,10 +152,6 @@ resource "aws_instance" "linux" {
   }
 }
 
-resource "random_pet" "password" {
-  length = 2
-}
-
 resource "aws_instance" "windows" {
   ami                         = data.aws_ami.windows-2019.id
   instance_type               = var.instance_type
@@ -171,7 +167,7 @@ resource "aws_instance" "windows" {
     #$User = "RdpUser"
     #$Password = ConvertTo-SecureString "S3curePa55w0rd" -AsPlainText -Force
     $User = "${var.windows_username}"
-    $Password = ConvertTo-SecureString "${random_pet.password.id}" -AsPlainText -Force
+    $Password = ConvertTo-SecureString "${var.windows_password}" -AsPlainText -Force
     New-LocalUser $User -Password $Password
     Add-LocalGroupMember -Group "Remote Desktop Users" -Member $User
     Add-LocalGroupMember -Group "Administrators" -Member $User
