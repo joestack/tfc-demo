@@ -29,5 +29,5 @@ variable "windows_username" {
 
 variable "windows_password" {
   description = "Password to login to the Windows Server"
-  default     = "5up3r53cur321"
+  default     = "S3curePa55w0rd"
 }
