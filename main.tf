@@ -164,8 +164,8 @@ resource "aws_instance" "windows" {
     <powershell>
     # Be sure to set the username and password on these two lines. Of course this is not a good
     # security practice to include a password at command line.
-    # PW as variable seems not to work TODO: sitch to TEMPLATE
-    $User = "$${var.windows_username}"
+    # PW as variable seems not to work TODO: switch to TEMPLATES
+    $User = "RdpUser"
     $Password = ConvertTo-SecureString "5up3r53cur321" -AsPlainText -Force
     New-LocalUser $User -Password $Password
     Add-LocalGroupMember -Group "Remote Desktop Users" -Member $User
