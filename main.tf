@@ -152,14 +152,6 @@ resource "aws_instance" "linux" {
   }
 }
 
-resource "random_pet" "windows_password" {
-  length = 2
-}
-
-locals {
-  windows_password = random_pet.windows_password.id
-}
-
 resource "aws_instance" "windows" {
   ami                         = data.aws_ami.windows-2019.id
   instance_type               = var.instance_type
@@ -173,7 +165,7 @@ resource "aws_instance" "windows" {
     # Be sure to set the username and password on these two lines. Of course this is not a good
     # security practice to include a password at command line.
     $User = "${var.windows_username}"
-    $Password = ConvertTo-SecureString "${local.windows_password}" -AsPlainText -Force
+    $Password = ConvertTo-SecureString "${var.windows_password}" -AsPlainText -Force
     New-LocalUser $User -Password $Password
     Add-LocalGroupMember -Group "Remote Desktop Users" -Member $User
     Add-LocalGroupMember -Group "Administrators" -Member $User

@@ -18,5 +18,5 @@ output "windows_username" {
 }
 
 output "windows-password" {
-  value = local.windows_password
+  value = var.windows_password
 }
