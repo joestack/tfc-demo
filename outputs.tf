@@ -13,10 +13,10 @@ output "ami-ubuntu" {
 output "ami-windows" {
   value = data.aws_ami.windows-2019.id
 }
-output "windows_username" {
-  value = var.windows_username
-}
+# output "windows_username" {
+#   value = var.windows_username
+# }
 
-output "windows-password" {
-  value = var.windows_password
-}
+# output "windows-password" {
+#   value = var.windows_password
+# }

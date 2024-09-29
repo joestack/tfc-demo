@@ -9,7 +9,7 @@ variable "name" {
 
 variable "instance_type" {
   description = "instance size to be used for worker nodes"
-  default     = "t2.small"
+  default     = "t2.medium"
 }
 
 variable "key_name" {
@@ -22,12 +22,12 @@ variable "network_address_space" {
   default     = "192.168.0.0/16"
 }
 
-variable "windows_username" {
-  description = "Username to login to the Windows Server"
-  default     = "RdpUser"
-}
+# variable "windows_username" {
+#   description = "Username to login to the Windows Server"
+#   default     = "RdpUser"
+# }
 
-variable "windows_password" {
-  description = "Password to login to the Windows Server"
-  default     = "5up3r53cur321"
-}
+# variable "windows_password" {
+#   description = "Password to login to the Windows Server"
+#   default     = "5up3r53cur321"
+# }
